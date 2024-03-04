@@ -1,0 +1,3 @@
+dashscope
+langchain
+langchain_community
