@@ -2,7 +2,7 @@
 # For prerequisites running the following sample, visit https://help.aliyun.com/document_detail/611472.html
 from http import HTTPStatus
 import dashscope
-
+from langchain import llms
 
 def call_with_messages():
     """
@@ -12,7 +12,8 @@ def call_with_messages():
                 {'role': 'user', 'content': '如何做炒西红柿鸡蛋？'}]
 
     response = dashscope.Generation.call(
-        dashscope.Generation.Models.qwen_turbo,
+        # dashscope.Generation.Models.qwen_turbo,
+        model='qwen1.5-1.8b-chat',
         messages=messages,
         result_format='message',  # set the result to be "message" format.
     )
@@ -39,6 +40,6 @@ def embed_with_str():
 
 
 if __name__ == '__main__':
-    # call_with_messages()
-    embed_with_str()
+    call_with_messages()
+    # embed_with_str()
     
